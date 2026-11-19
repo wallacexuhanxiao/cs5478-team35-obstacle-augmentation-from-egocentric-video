@@ -1,0 +1,32 @@
+[
+ {
+  "name": "wine_bottle",
+  "id": "wine_bottle",
+  "mesh": "./samples/mustard_1/assets/wine_bottle_m.obj",
+  "pose": [
+   0.635,
+   -0.03499999999999953,
+   0.8750463800020956,
+   1.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "static": true,
+  "placement": {
+   "x": 0.635,
+   "y": -0.03499999999999953,
+   "yaw": 0.0,
+   "clearance_m": 0.035908152801712695,
+   "in_view": 1.0,
+   "nominal_cut_m": 0.019779884203530163,
+   "variant": 0,
+   "clearance_source": "box certificate",
+   "feasible_poses": 171,
+   "margin_m": 0.01,
+   "box": "work/mustard_1/boxes/chosen/a.json",
+   "rollout": "work/mustard_1/detour_a/final",
+   "scope": "composited only: outside every measured surface and rendered arm at every frame; the rollout was planned around the planning-only box and simulated without it"
+  }
+ }
+]

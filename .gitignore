@@ -1,0 +1,10 @@
+env.sh
+work/
+third_party/EgoEngine-CoRL2026/
+third_party/spider/
+third_party/lama_root/
+third_party/curobo/
+third_party/egoengine_repro/assets/
+envs/
+__pycache__/
+*.pyc

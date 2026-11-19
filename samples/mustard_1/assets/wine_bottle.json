@@ -1,0 +1,26 @@
+{
+ "id": "wine_bottle",
+ "shape": "wine_bottle",
+ "size_m": [],
+ "mass_kg": 1.2,
+ "extents_m": [
+  0.075,
+  0.075,
+  0.3
+ ],
+ "parts": {
+  "glass": [
+   0.06,
+   0.24,
+   0.1,
+   1.0
+  ],
+  "label": [
+   0.92,
+   0.88,
+   0.78,
+   1.0
+  ]
+ },
+ "provenance": "generated distractor; upright, z up, centred at its bounding box"
+}

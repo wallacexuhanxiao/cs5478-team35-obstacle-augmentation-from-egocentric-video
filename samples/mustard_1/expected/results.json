@@ -1,0 +1,76 @@
+{
+ "reproduce": {
+  "passed": true,
+  "continuous_rollout_state_resets": 0,
+  "final_object_error": {
+   "position_m": 0.014820036306712645,
+   "rotation_rad": 0.16039352893786424
+  },
+  "executed_duration_s": 4.65,
+  "source_duration_s": 4.65,
+  "original_source_duration_s": 3.1,
+  "max_bottle_lift_m": 0.032270729541778564
+ },
+ "detour_a": {
+  "passed": true,
+  "continuous_rollout_state_resets": 0,
+  "final_object_error": {
+   "position_m": 0.014985827918770848,
+   "rotation_rad": 0.15681880802916862
+  },
+  "executed_duration_s": 4.65,
+  "source_duration_s": 4.65,
+  "original_source_duration_s": 3.1,
+  "max_bottle_lift_m": 0.06500130891799927,
+  "max_wrist_deviation_from_reproduction_m": 0.1160346158413688,
+  "at_frame": 68,
+  "max_wrist_raise_over_reproduction_m": 0.03567391633987427,
+  "box_certificate": {
+   "box": "boxes/chosen/a.json",
+   "size_m": [
+    0.3,
+    0.16,
+    0.31
+   ],
+   "hand_clearance_m": 0.035908152801712695,
+   "tool_clearance_m": 0.054296500450031676,
+   "rendered_arm_clearance_m": 0.03590815280171271,
+   "min_clearance_m": 0.035908152801712695
+  },
+  "objects_placed": [
+   "cup",
+   "ketchup",
+   "wine_bottle"
+  ]
+ },
+ "detour_o0": {
+  "passed": true,
+  "continuous_rollout_state_resets": 0,
+  "final_object_error": {
+   "position_m": 0.014770383596408882,
+   "rotation_rad": 0.15713242100308783
+  },
+  "executed_duration_s": 4.65,
+  "source_duration_s": 4.65,
+  "original_source_duration_s": 3.1,
+  "max_bottle_lift_m": 0.19071578979492188,
+  "max_wrist_deviation_from_reproduction_m": 0.16598747248132006,
+  "at_frame": 69,
+  "max_wrist_raise_over_reproduction_m": 0.12692975997924805,
+  "box_certificate": {
+   "box": "boxes/chosen/o0.json",
+   "size_m": [
+    0.14,
+    0.34,
+    0.12
+   ],
+   "hand_clearance_m": 0.03577477414657107,
+   "tool_clearance_m": 0.048278183299752614,
+   "rendered_arm_clearance_m": 0.03768819130839651,
+   "min_clearance_m": 0.03577477414657107
+  },
+  "objects_placed": [
+   "cup"
+  ]
+ }
+}

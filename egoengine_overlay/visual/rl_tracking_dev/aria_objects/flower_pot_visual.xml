@@ -1,0 +1,21 @@
+<mujoco model="flower_pot">
+  <!-- Generated distractor; visual meshes are the pipeline physics/planning geometry. -->
+  <asset>
+    <mesh file="meshes/flower_pot_pot.obj" name="flower_pot_visual_0" scale="1 1 1" />
+    <material name="flower_pot_colour_0" rgba="0.72 0.36 0.2 1.0" specular="0.3" shininess="0.3" />
+    <mesh file="meshes/flower_pot_plant.obj" name="flower_pot_visual_1" scale="1 1 1" />
+    <material name="flower_pot_colour_1" rgba="0.2 0.5 0.18 1.0" specular="0.3" shininess="0.3" />
+  </asset>
+  <worldbody>
+    <body>
+      <body name="object">
+        <geom mesh="flower_pot_visual_0" type="mesh" material="flower_pot_colour_0" contype="0" conaffinity="0" group="1" />
+        <geom mesh="flower_pot_visual_1" type="mesh" material="flower_pot_colour_1" contype="0" conaffinity="0" group="1" />
+        <geom type="box" size="0.005 0.005 0.005" group="0" contype="0" conaffinity="0" density="300" rgba="0 0 0 0" />
+      </body>
+      <site name="bottom_site" rgba="0 0 0 0" size="0.005" pos="0 0 -0.123125" />
+      <site name="top_site" rgba="0 0 0 0" size="0.005" pos="0 0 0.123125" />
+      <site name="horizontal_radius_site" rgba="0 0 0 0" size="0.005" pos="0.076000 0 0" />
+    </body>
+  </worldbody>
+</mujoco>

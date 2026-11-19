@@ -1,0 +1,32 @@
+[
+ {
+  "name": "cup",
+  "id": "cup",
+  "mesh": "./samples/mustard_1/assets/cup_m.obj",
+  "pose": [
+   0.6511522368914976,
+   -0.0288477631085019,
+   0.7700463800020956,
+   1.0,
+   0.0,
+   0.0,
+   0.0
+  ],
+  "static": true,
+  "placement": {
+   "x": 0.6511522368914976,
+   "y": -0.0288477631085019,
+   "yaw": 0.0,
+   "clearance_m": 0.03577477414657107,
+   "in_view": 1.0,
+   "nominal_cut_m": 0.007546380002095621,
+   "variant": 0,
+   "clearance_source": "box certificate",
+   "feasible_poses": 1760,
+   "margin_m": 0.01,
+   "box": "work/mustard_1/boxes/chosen/o0.json",
+   "rollout": "work/mustard_1/detour_o0/final",
+   "scope": "composited only: outside every measured surface and rendered arm at every frame; the rollout was planned around the planning-only box and simulated without it"
+  }
+ }
+]

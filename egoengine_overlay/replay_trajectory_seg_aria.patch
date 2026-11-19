@@ -1,0 +1,49 @@
+diff --git a/visual/rl_tracking_dev/replay_trajectory_seg_aria.py b/visual/rl_tracking_dev/replay_trajectory_seg_aria.py
+index aebc589..055ccf7 100644
+--- a/visual/rl_tracking_dev/replay_trajectory_seg_aria.py
++++ b/visual/rl_tracking_dev/replay_trajectory_seg_aria.py
+@@ -126,8 +126,13 @@ def make_tracking_env(args, use_cam_obs):
+     target_pose = np.array(retarget_data["init_state"]["target"]).reshape(4, 4)
+     
+     is_hammer_task = "hammer" in args.data_file
++    obstacle = retarget_data["init_state"].get("obstacle")
++    if obstacle is not None and not is_hammer_task:
++        # Augmentation: the otherwise unused target slot (same object model)
++        # stands as a static obstacle at this retarget-world pose.
++        target_pose = np.array(obstacle).reshape(4, 4)
+     # Most Aria tasks have no target object; hammer uses the fixed shelf target.
+-    if not is_hammer_task:
++    elif not is_hammer_task:
+         target_pose[:3, 3] += np.array([100.0, 100.0, -100.0])
+ 
+     tool2desk = np.linalg.inv(desk_pose) @ tool_pose
+@@ -143,12 +148,18 @@ def make_tracking_env(args, use_cam_obs):
+         obj_name = "hammer_cm"
+     elif "mustard" in args.data_file:
+         obj_name = "mustard_cm"
++        if os.environ.get("EGOENGINE_OBJECTS_FOREGROUND") == "1":
++            # Objects become rendered layers: scanned mesh instead of the convex hull.
++            obj_name = "mustard_cm_visual"
+ 
+     obj_info = {
+         "target": {"xml_id": "../../aria_objects/hammer_shelf_cm" if is_hammer_task else f"../../aria_objects/{obj_name}", "pose": target2desk, "scale": 1.0},
+         "tool":   {"xml_id": f"../../aria_objects/{obj_name}", "pose": tool2desk, "scale": 1.0}
+     }
+ 
++    if obstacle is not None and os.environ.get("EGOENGINE_OBSTACLE_XML"):
++        # Augmentation distractor with its own model (the same mesh as the physics run).
++        obj_info["target"]["xml_id"] = f"../../aria_objects/{os.environ['EGOENGINE_OBSTACLE_XML'].removesuffix('.xml')}"
+     render_w, render_h, render_fps, source_video = _source_video_info(args.data_file)
+     args.source_video_width = render_w
+     args.source_video_height = render_h
+@@ -554,6 +565,10 @@ def replaying(args):
+         orig_rgba_step  = m.geom_rgba.copy()
+         orig_matid_step = m.geom_matid.copy()
+         idx = np.asarray(arm_geom_ids, dtype=np.int32)
++        if os.environ.get("EGOENGINE_OBJECTS_FOREGROUND") == "1" and object_geom_ids.size > 0:
++            # Augmentation: objects whose pose differs from the source video
++            # (moved tool, inserted obstacle) are rendered layers too.
++            idx = np.union1d(idx, object_geom_ids).astype(np.int32)
+         try:
+             m.geom_matid[:] = -1
+             tmp = orig_rgba_step.copy()

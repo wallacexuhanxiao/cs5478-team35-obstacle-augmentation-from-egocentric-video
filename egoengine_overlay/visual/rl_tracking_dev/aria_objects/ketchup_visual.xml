@@ -1,0 +1,18 @@
+<mujoco model="ketchup">
+  <!-- Generated distractor; visual meshes are the pipeline physics/planning geometry. -->
+  <asset>
+    <mesh file="meshes/mustard.obj" name="ketchup_visual_0" scale="1 1 1" />
+    <material name="ketchup_colour_0" rgba="0.8 0.08 0.05 1.0" specular="0.3" shininess="0.3" />
+  </asset>
+  <worldbody>
+    <body>
+      <body name="object">
+        <geom mesh="ketchup_visual_0" type="mesh" material="ketchup_colour_0" contype="0" conaffinity="0" group="1" />
+        <geom type="box" size="0.005 0.005 0.005" group="0" contype="0" conaffinity="0" density="300" rgba="0 0 0 0" />
+      </body>
+      <site name="bottom_site" rgba="0 0 0 0" size="0.005" pos="0 0 -0.000000" />
+      <site name="top_site" rgba="0 0 0 0" size="0.005" pos="0 0 0.000000" />
+      <site name="horizontal_radius_site" rgba="0 0 0 0" size="0.005" pos="0.000000 0 0" />
+    </body>
+  </worldbody>
+</mujoco>

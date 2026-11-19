@@ -1,0 +1,18 @@
+<mujoco model="cup">
+  <!-- Generated cup (85 mm x 90 mm cylinder), flat colour; stands in for the TACO mug of the paper. -->
+  <asset>
+    <mesh file="meshes/cup.obj" name="cup_mesh" scale="1 1 1" />
+    <material name="cup_colour" rgba="0.92 0.92 0.88 1.0" specular="0.3" shininess="0.3" />
+  </asset>
+  <worldbody>
+    <body>
+      <body name="object">
+        <geom mesh="cup_mesh" type="mesh" material="cup_colour" contype="0" conaffinity="0" group="1" />
+        <geom mesh="cup_mesh" type="mesh" group="0" contype="4" conaffinity="7" density="300" />
+      </body>
+      <site name="bottom_site" rgba="0 0 0 0" size="0.005" pos="0 0 -0.045000" />
+      <site name="top_site" rgba="0 0 0 0" size="0.005" pos="0 0 0.045000" />
+      <site name="horizontal_radius_site" rgba="0 0 0 0" size="0.005" pos="0.042500 0 0" />
+    </body>
+  </worldbody>
+</mujoco>

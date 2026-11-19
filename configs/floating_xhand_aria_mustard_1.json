@@ -1,0 +1,94 @@
+{
+  "embodiment": "floating_xhand",
+  "physics": {
+    "fixed_environment_roles": [],
+    "environment_support_provenance": "Single controllable right hand: fixture supports the uncontrolled target in place of the omitted supporting hand. Fixed at task initialization; never reference-driven during rollout.",
+    "hand_tool_static_friction": 1.0,
+    "hand_tool_dynamic_friction": 1.0,
+    "provenance": "EgoEngine reproduction build_scene/build_scene_batched friction=1.0; explicit hand/tool collision material, preserve authored materials and table settings"
+  },
+  "controller_provenance": "previous EgoEngine XHand reproduction external-wrench PD gains, force clamps and gravity feedforward; source-clock world linear and angular velocity targets are both tracked | Wrist PD for acquisition (diagnostic scripts/diagnose_wrist_drive.py, outputs wrist_diag_d1/d2): linear kp 1200 / kd 40 (1.122 kg hand: omega_n 33 rad/s, zeta 0.55; the reproduction tuned 300/12 for a 0.19 kg hand) and rotational kp 6 / kd 0.08 (palm link I 0.00035-0.00068 kg m^2 keeps explicit damping below the original 0.12; the previous kp 2 left 0.055 rad finger-closure twist, now 0.017 rad in the diagnostic). Clamps unchanged (30 N, 2 N m). | hit3: rotational damping back to 0.12 (kp_rot 6 kept). With kd_rot 0.08 the held knife (Cut 040) rang at |w| p95 14 rad/s vs 4.5 commanded; 0.12 is the long-used original damping (Pour 246 p95 3.3 rad/s).",
+  "controller": {
+    "hand_velocity_feedforward": true,
+    "hand_gravity_moment_compensation": true,
+    "hand_stiffness": 50.0,
+    "hand_damping": 1.0,
+    "hand_max_effort": 3.0,
+    "wrist_kp": 1200.0,
+    "wrist_kd": 40.0,
+    "wrist_kp_rot": 6.0,
+    "wrist_kd_rot": 0.12,
+    "wrist_max_force": 30.0,
+    "wrist_max_torque": 2.0
+  },
+  "finger_drive_provenance": "Shared research gains: reduce observed 0.03-0.075 rad load deflection of a 0.5 mm geometric grasp; preserve 3 Nm effort limit; fresh physical validation required",
+  "planning": {
+    "velocity_limits": [
+      1.0,
+      1.0,
+      1.0,
+      3.0,
+      3.0,
+      3.0
+    ],
+    "acceleration_limits": [
+      5.0,
+      5.0,
+      5.0,
+      15.0,
+      15.0,
+      15.0
+    ],
+    "note": "Nominal floating-wrist planning budgets, not physical hardware ratings; actual contact and tracking are checked in PhysX.",
+    "wrist_chart_wxyz": [
+      0.539119473641818,
+      0.4386503381590534,
+      -0.606413311033021,
+      0.38626282525643835
+    ],
+    "wrist_chart_provenance": {
+      "source_run": "outputs/aria_m1_bridge_x1p5/final",
+      "frames": 94,
+      "identity_min_abs_cos_pitch": 0.005333713805754798,
+      "chart_min_abs_cos_pitch": 0.9986298306887647,
+      "rule": "maximise the smallest |cos(ZYX pitch)| of the measured hand orientations; planning chart only"
+    }
+  },
+  "egoengine_alignment": {
+    "plain_reference_execution": true,
+    "retarget": "egoengine",
+    "mpc": "spider_mjwp",
+    "provenance": "EgoEngine Sec. 3.2: Mink Eq.(1) reference, Replay executes it directly, MPC mode = SPIDER sampling (the paper's MPC baseline); our PhysX acceptance gates and source clock unchanged"
+  },
+  "ppo": {
+    "action_scales": [
+      0.04,
+      0.04,
+      0.04,
+      0.3,
+      0.3,
+      0.3,
+      0.3,
+      0.3,
+      0.3,
+      0.3,
+      0.3,
+      0.3,
+      0.3,
+      0.3,
+      0.3,
+      0.3,
+      0.3,
+      0.3
+    ],
+    "max_seconds": 420.0,
+    "provenance": "wider residual (wrist \u00b14 cm/\u00b10.3 rad, fingers \u00b10.3 rad) and 420 s budget for thin-handle acquisition; default stays \u00b12 cm/\u00b10.2 rad, 240 s | residual_smoothing 0.2: first-order smoothing of the per-frame PPO residual (EgoEngine C.3 has an action-smoothness term; the project set it to 0)",
+    "residual_smoothing": 0.2
+  },
+  "carry": {
+    "offset_fade_s": 1.0,
+    "provenance": "fade the measured carry-entry offset to the source-aligned drive over 1 s (default: minimum nominal handoff); plus 0.15 rad grip preload along the XHand closing direction at carry start",
+    "grip_preload_rad": 0.15
+  },
+  "single_object_variant": "floating_xhand_egoengine_hit3s.json with no fixed target: single-object tasks (EgoEngine-release Aria mustard pick-and-place) have only the manipulated tool; everything else unchanged."
+}

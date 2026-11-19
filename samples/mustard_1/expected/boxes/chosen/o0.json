@@ -1,0 +1,45 @@
+[
+ {
+  "name": "box",
+  "id": "planning_box",
+  "mesh": "work/mustard_1/boxes/over/box_0.obj",
+  "planning_only": true,
+  "pose": [
+   0.7149999999999999,
+   -0.12499999999999978,
+   0.7850463800020955,
+   0.9807852804032304,
+   0.0,
+   0.0,
+   0.19509032201612825
+  ],
+  "placement": {
+   "x": 0.7149999999999999,
+   "y": -0.12499999999999978,
+   "yaw": 0.39269908169872414,
+   "size_m": "0.14x0.34",
+   "length_m": 0.14,
+   "width_m": 0.34,
+   "height_m": 0.12,
+   "depth_m": 0.012166112862136882,
+   "end_clearance_m": 0.02269640573291816,
+   "in_view": 1.0,
+   "side": "any",
+   "corridor_offset_m": 0.1759750674741384,
+   "corridor_along": 0.6551724137931034,
+   "pocket": {
+    "object": "cup",
+    "x": 0.65,
+    "y": -0.019999999999999962,
+    "gap_to_approach_m": 0.025495097567963938,
+    "holds": [
+     "cup"
+    ]
+   },
+   "depth_required_m": 0.01,
+   "end_clearance_required_m": 0.02,
+   "source_run": "work/mustard_1/reproduce/final",
+   "scope": "planning-only virtual box: shapes the approach plan; never physical or drawn"
+  }
+ }
+]

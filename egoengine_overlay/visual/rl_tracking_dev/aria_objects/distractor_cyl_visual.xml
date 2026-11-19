@@ -1,0 +1,18 @@
+<mujoco model="distractor_cyl">
+  <!-- Generated distractor: the same OBJ as the pipeline physics/planning mesh; flat colour. -->
+  <asset>
+    <mesh file="meshes/distractor_cyl.obj" name="distractor_cyl_mesh" scale="1 1 1" />
+    <material name="distractor_cyl_colour" rgba="0.15 0.4 0.85 1.0" specular="0.3" shininess="0.3" />
+  </asset>
+  <worldbody>
+    <body>
+      <body name="object">
+        <geom mesh="distractor_cyl_mesh" type="mesh" material="distractor_cyl_colour" contype="0" conaffinity="0" group="1" />
+        <geom mesh="distractor_cyl_mesh" type="mesh" group="0" contype="4" conaffinity="7" density="300" />
+      </body>
+      <site name="bottom_site" rgba="0 0 0 0" size="0.005" pos="0 0 -0.110000" />
+      <site name="top_site" rgba="0 0 0 0" size="0.005" pos="0 0 0.110000" />
+      <site name="horizontal_radius_site" rgba="0 0 0 0" size="0.005" pos="0.040000 0 0" />
+    </body>
+  </worldbody>
+</mujoco>

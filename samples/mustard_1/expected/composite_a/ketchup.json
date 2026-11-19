@@ -1,0 +1,32 @@
+[
+ {
+  "name": "ketchup",
+  "id": "ketchup",
+  "mesh": "work/mustard_1/object_cache/aria_95ab61c37240_mustard/aria_95ab61c37240_mustard_m.obj",
+  "pose": [
+   0.645,
+   -0.03499999999999953,
+   0.8100000023841858,
+   0.9926499596520177,
+   0.010031505850505912,
+   -0.018833408303376282,
+   0.11912484721877754
+  ],
+  "static": true,
+  "placement": {
+   "x": 0.645,
+   "y": -0.03499999999999953,
+   "yaw": 4.71238898038469,
+   "clearance_m": 0.035908152801712695,
+   "in_view": 1.0,
+   "nominal_cut_m": 0.02027858059024701,
+   "variant": 0,
+   "clearance_source": "box certificate",
+   "feasible_poses": 1086,
+   "margin_m": 0.01,
+   "box": "work/mustard_1/boxes/chosen/a.json",
+   "rollout": "work/mustard_1/detour_a/final",
+   "scope": "composited only: outside every measured surface and rendered arm at every frame; the rollout was planned around the planning-only box and simulated without it"
+  }
+ }
+]

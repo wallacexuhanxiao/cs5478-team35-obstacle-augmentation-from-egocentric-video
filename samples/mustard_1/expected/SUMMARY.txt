@@ -1,0 +1,36 @@
+[15:15:08] mustard_1 prepare: segment, slow the clock x1.5, retarget the Anchors
+[15:20:25] mustard_1   SCHEDULE {"output": "work/mustard_1/schedule/schedule.json", "anch
+[15:20:25] mustard_1 done: prepare
+[15:24:31] mustard_1 reproduce: no inserted object
+  reproduce: physics PASSED; continuous rollout, state resets between segments: 0; final object error {'position_m': 0.014820036306712645, 'rotation_rad': 0.16039352893786424}; executed/source duration 4.65/4.65 s
+[15:30:41] mustard_1 render_original
+[15:35:09] mustard_1   video mustard_1_original: work/mustard_1/render/mustard_1_original/mustard_1_original/visual.mp4 (edited video: RB-Y1 + objects over the real, human-free background); render/scene.mp4 (same motion in the simulator scene)
+[15:35:16] mustard_1   RB-Y1 arm model: work/mustard_1/arm_model/arm_model.json
+[15:35:16] mustard_1 boxes: occupancy of the executed motion, planning boxes across the transport
+[15:36:04] mustard_1   BOX_SEARCH {"feasible": 15, "picked": 2, "window": [47, 81], "rejected": {"off_table": 0, "no_approach": 10440, "shallow": 1358, "near_ends": 7030, "out_of_view": 0, "no_pocket": 5}, "best_end_clearan
+[15:36:04] mustard_1   BOX work/mustard_1/boxes/tall/box_0.json {"x": 0.7349999999999999, "y": 0.015000000000000346, "yaw": 0.785
+[15:36:04] mustard_1   BOX work/mustard_1/boxes/tall/box_1.json {"x": 0.7349999999999999, "y": -0.08499999999999974, "yaw": 2.356
+[15:36:04] mustard_1   BOX_SEARCH {"feasible": 12, "picked": 1, "window": [47, 81], "rejected": {"off_table": 0, "no_approach": 12349, "shallow": 2644, "near_ends": 13253, "out_of_view": 0, "no_pocket": 14}, "best_end_clear
+[15:36:04] mustard_1   BOX work/mustard_1/boxes/over/box_0.json {"x": 0.7149999999999999, "y": -0.12499999999999978, "yaw": 0.392
+[15:36:04] mustard_1 detour_a: re-plan around planning box a (planner only; not in physics or video)
+  detour_a: physics PASSED; continuous rollout, state resets between segments: 0; final object error {'position_m': 0.014985827918770848, 'rotation_rad': 0.15681880802916862}; executed/source duration 4.65/4.65 s
+[15:45:41] mustard_1 done: reproduce render_original boxes detour_a
+[15:45:48] mustard_1 detour_o0: re-plan around planning box o0 (planner only; not in physics or video)
+  detour_o0: physics PASSED; continuous rollout, state resets between segments: 0; final object error {'position_m': 0.014770383596408882, 'rotation_rad': 0.15713242100308783}; executed/source duration 4.65/4.65 s
+[16:01:39] mustard_1 compose_a: box certificate on the measured rollout, visible objects inside the box
+[16:03:44] mustard_1   certificate: {"box": "a.json", "size_m": [0.3, 0.16, 0.31], "hand_clearance_m": 0.035908152801712695, "tool_clearance_m": 0.054296500450031676, "rendered_arm_clearance_m": 0.03590815280171271, "min_clearance_m": 0
+[16:04:53] mustard_1   COMPOSITE work/mustard_1/composite_a/ketchup.json {"x": 0.645, "y": -0.03499999999999953, "yaw": 4.7123889
+[16:04:53] mustard_1   COMPOSITE work/mustard_1/composite_a/wine_bottle.json {"x": 0.635, "y": -0.03499999999999953, "yaw": 0.0,
+[16:04:53] mustard_1   COMPOSITE work/mustard_1/composite_a/cup.json {"x": 0.645, "y": -0.03499999999999953, "yaw": 0.78539816339
+[16:04:53] mustard_1 compose_o0: box certificate on the measured rollout, visible objects inside the box
+[16:06:58] mustard_1   certificate: {"box": "o0.json", "size_m": [0.14, 0.34, 0.12], "hand_clearance_m": 0.03577477414657107, "tool_clearance_m": 0.048278183299752614, "rendered_arm_clearance_m": 0.03768819130839651, "min_clearance_m": 
+[16:07:05] mustard_1   COMPOSITE_NONE ketchup {"reason": "box not placed to hold it", "holds": ["cup"]}
+[16:07:05] mustard_1   COMPOSITE_NONE wine_bottle {"reason": "box not placed to hold it", "holds": ["cup"]}
+[16:07:05] mustard_1   COMPOSITE work/mustard_1/composite_o0/cup.json {"x": 0.6511522368914976, "y": -0.0288477631085019, "yaw":
+[16:07:05] mustard_1 render_a
+[16:10:59] mustard_1   video mustard_1_box_a_cup: work/mustard_1/render/mustard_1_box_a_cup/mustard_1_box_a_cup/visual.mp4 (edited video: RB-Y1 + objects over the real, human-free background); render/scene.mp4 (same motion in the simulator scene)
+[16:14:57] mustard_1   video mustard_1_box_a_ketchup: work/mustard_1/render/mustard_1_box_a_ketchup/mustard_1_box_a_ketchup/visual.mp4 (edited video: RB-Y1 + objects over the real, human-free background); render/scene.mp4 (same motion in the simulator scene)
+[16:18:39] mustard_1   video mustard_1_box_a_wine_bottle: work/mustard_1/render/mustard_1_box_a_wine_bottle/mustard_1_box_a_wine_bottle/visual.mp4 (edited video: RB-Y1 + objects over the real, human-free background); render/scene.mp4 (same motion in the simulator scene)
+[16:18:39] mustard_1 render_o0
+[16:22:31] mustard_1   video mustard_1_box_o0_cup: work/mustard_1/render/mustard_1_box_o0_cup/mustard_1_box_o0_cup/visual.mp4 (edited video: RB-Y1 + objects over the real, human-free background); render/scene.mp4 (same motion in the simulator scene)
+[16:22:31] mustard_1 done: compose_a compose_o0 render_a render_o0

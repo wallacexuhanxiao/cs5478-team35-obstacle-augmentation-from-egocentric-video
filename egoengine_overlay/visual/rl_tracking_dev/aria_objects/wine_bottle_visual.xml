@@ -1,0 +1,21 @@
+<mujoco model="wine_bottle">
+  <!-- Generated distractor; visual meshes are the pipeline physics/planning geometry. -->
+  <asset>
+    <mesh file="meshes/wine_bottle_glass.obj" name="wine_bottle_visual_0" scale="1 1 1" />
+    <material name="wine_bottle_colour_0" rgba="0.06 0.24 0.1 1.0" specular="0.3" shininess="0.3" />
+    <mesh file="meshes/wine_bottle_label.obj" name="wine_bottle_visual_1" scale="1 1 1" />
+    <material name="wine_bottle_colour_1" rgba="0.92 0.88 0.78 1.0" specular="0.3" shininess="0.3" />
+  </asset>
+  <worldbody>
+    <body>
+      <body name="object">
+        <geom mesh="wine_bottle_visual_0" type="mesh" material="wine_bottle_colour_0" contype="0" conaffinity="0" group="1" />
+        <geom mesh="wine_bottle_visual_1" type="mesh" material="wine_bottle_colour_1" contype="0" conaffinity="0" group="1" />
+        <geom type="box" size="0.005 0.005 0.005" group="0" contype="0" conaffinity="0" density="300" rgba="0 0 0 0" />
+      </body>
+      <site name="bottom_site" rgba="0 0 0 0" size="0.005" pos="0 0 -0.150000" />
+      <site name="top_site" rgba="0 0 0 0" size="0.005" pos="0 0 0.150000" />
+      <site name="horizontal_radius_site" rgba="0 0 0 0" size="0.005" pos="0.037500 0 0" />
+    </body>
+  </worldbody>
+</mujoco>
